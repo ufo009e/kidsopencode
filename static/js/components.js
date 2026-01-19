@@ -371,6 +371,11 @@ function createProjectCard(project, onSelect, onDelete, onOpenFolder) {
     
     const createdDate = new Date(project.created * 1000).toLocaleDateString('zh-CN');
     
+    // Get current theme texts
+    const texts = window.themeManager ? window.themeManager.getCurrentTexts() : {};
+    const openFolderText = texts['open-folder'] || '📂 打开文件夹';
+    const deleteTitle = texts['delete-title'] || '删除城堡';
+    
     div.innerHTML = `
         <div class="flex items-center gap-4 mb-4">
             <div class="w-14 h-14 rounded-2xl bg-purple-100 border-2 border-purple-200 flex items-center justify-center text-3xl shadow-sm transform group-hover:scale-110 transition-transform">
@@ -380,7 +385,7 @@ function createProjectCard(project, onSelect, onDelete, onOpenFolder) {
                 <h3 class="font-fun font-bold text-2xl text-primary truncate">${escapeHtml(project.name)}</h3>
                 <div class="text-xs text-gray-400 font-bold mt-1">📅 ${createdDate}</div>
             </div>
-            <button class="delete-btn text-gray-300 hover:text-red-500 transition-colors p-2 rounded-full hover:bg-red-50" title="删除城堡">
+            <button class="delete-btn text-gray-300 hover:text-red-500 transition-colors p-2 rounded-full hover:bg-red-50" title="${escapeHtml(deleteTitle)}">
                 ❌
             </button>
         </div>
@@ -390,8 +395,8 @@ function createProjectCard(project, onSelect, onDelete, onOpenFolder) {
         </div>
         
         <div class="flex gap-3">
-            <button class="open-folder-btn flex-1 py-3 px-4 bg-yellow-100 text-yellow-700 rounded-xl hover:bg-yellow-200 border-2 border-yellow-300 font-bold transition-all flex items-center justify-center gap-2 transform hover:-translate-y-1 shadow-sm" title="打开文件夹">
-                📂 打开文件夹
+            <button class="open-folder-btn flex-1 py-3 px-4 bg-yellow-100 text-yellow-700 rounded-xl hover:bg-yellow-200 border-2 border-yellow-300 font-bold transition-all flex items-center justify-center gap-2 transform hover:-translate-y-1 shadow-sm" title="${escapeHtml(openFolderText)}">
+                ${openFolderText}
             </button>
             <div class="px-4 py-3 bg-primary text-white rounded-xl font-bold flex items-center justify-center shadow-md">
                 ➡️
