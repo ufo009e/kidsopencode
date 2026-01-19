@@ -2,6 +2,8 @@
 
 An AI-powered game development tool designed for kids to create their own games through conversation!
 
+![Screenshot](screenshot.png)
+
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
@@ -31,6 +33,7 @@ The browser will automatically open at `http://localhost:8686`
 - 🎭 **Anime Quotes** - Display classic quotes while waiting
   - 🇨🇳 Chinese: Naruto, One Piece, Demon Slayer, Attack on Titan, Jujutsu Kaisen...
   - 🇺🇸 English: Disney (Frozen, Lion King), Harry Potter, Marvel (Avengers)
+- 🎨 **Multi-Theme** - Support Chinese & English themes (Dream Factory, Disney Magic, Hogwarts, Marvel Heroes, etc.)
 
 ## 📝 License
 

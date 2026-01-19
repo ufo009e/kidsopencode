@@ -2,6 +2,8 @@
 
 一个专为儿童设计的 AI 游戏开发工具，让孩子们通过对话轻松创建自己的游戏！
 
+![Screenshot](screenshot.png)
+
 ## 🚀 快速开始
 
 ### 1. 安装依赖
@@ -31,6 +33,7 @@ python web_builder.py
 - 🎭 **动漫名言** - 等待时显示经典台词
   - 🇨🇳 中文：火影忍者、海贼王、鬼灭之刃、进击的巨人、咒术回战...
   - 🇺🇸 英文：Disney (Frozen, Lion King)、Harry Potter、Marvel (Avengers)
+- 🎨 **多主题** - 支持中英文主题切换（梦工厂、Disney Magic、Hogwarts、Marvel Heroes 等）
 
 ## 📝 许可证
 
