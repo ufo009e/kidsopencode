@@ -1,0 +1,22 @@
+# Web Builder Requirements
+
+# FastAPI and server
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+opencode-ai
+
+# HTTP client for proxying
+httpx
+
+# Voice transcription (optional)
+faster-whisper
+sounddevice
+numpy
+torch
+
+# Legacy GUI dependencies (optional)
+ttkbootstrap
+Pillow
+requests

@@ -1,0 +1,344 @@
+/* Custom Styles for Game Dream Factory 🎮 */
+
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Nunito:wght@400;700&display=swap');
+
+/* Dynamic Theme Styling Support */
+:root {
+    --radius-nav-btn: 1rem;
+    --radius-bubble: 1rem;
+    --font-display: "ZCOOL KuaiLe", cursive;
+    --font-body: 'Nunito', sans-serif;
+    --border-style: solid;
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --bg-pattern: none;
+    --hover-transform: scale(1.05);
+    --transition-speed: 0.2s;
+}
+
+/* Playful Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-dark-bg, #fdf4ff);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-dark-border, #fbcfe8);
+    border-radius: 6px;
+    border: 3px solid var(--color-dark-bg, #fdf4ff);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-secondary, #f472b6);
+}
+
+/* Smooth Animations */
+* {
+    transition-property: background-color, border-color, color, fill, stroke, transform, box-shadow;
+    transition-duration: var(--transition-speed);
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy effect */
+}
+
+/* Theme Background Pattern */
+.bg-theme-pattern {
+    background-image: var(--bg-pattern);
+    background-repeat: repeat;
+    background-size: auto;
+}
+
+/* Override font-fun to use variable */
+.font-fun {
+    font-family: var(--font-display) !important;
+}
+
+body {
+    font-family: var(--font-body) !important;
+}
+
+/* Sidebar Navigation Buttons */
+aside nav button {
+    border-radius: var(--radius-nav-btn) !important;
+    border-style: var(--border-style) !important;
+}
+
+/* Custom Hover Transform for Sidebar Buttons */
+aside nav button:hover {
+    transform: var(--hover-transform) !important;
+}
+
+/* Chat Bubbles (User/AI) */
+.message-bubble {
+    animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.message-bubble .rounded-2xl, 
+.message-bubble .message-content {
+    border-radius: var(--radius-bubble) !important;
+    border-style: var(--border-style) !important;
+    box-shadow: var(--shadow-card) !important;
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Ensure text selection works in messages */
+.select-text {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    cursor: text;
+}
+
+/* Copy button transitions */
+.copy-btn {
+    transition: all var(--transition-speed) cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 10;
+}
+
+.copy-btn:active {
+    transform: scale(0.9);
+}
+
+/* Tool Result Styles */
+.tool-result {
+    border-left: 5px solid var(--color-primary, #8b5cf6);
+    background-color: var(--color-dark-card, #ffffff);
+    box-shadow: var(--shadow-card);
+}
+
+.tool-result.completed { border-left-color: #10b981; }
+.tool-result.failed { border-left-color: #ef4444; }
+.tool-result.running { border-left-color: #fbbf24; }
+
+/* Thinking Indicator Animation */
+@keyframes pulse-bounce {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.95); }
+}
+
+.thinking-pulse {
+    animation: pulse-bounce 1.5s infinite;
+}
+
+/* Code Block Enhancements */
+pre[class*="language-"] {
+    margin: 1em 0;
+    border-radius: 1rem;
+    border: 2px solid var(--color-dark-border, #e2e8f0);
+    background: var(--color-highlight, #f8fafc) !important;
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+code[class*="language-"] {
+    font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 0.95em;
+    color: var(--color-text-main, #334155);
+    text-shadow: none !important;
+}
+
+/* Markdown Styles */
+.markdown-content {
+    line-height: 1.7;
+    font-family: var(--font-body);
+    color: var(--color-text-main);
+}
+
+.markdown-content h1 {
+    font-family: var(--font-display);
+    font-size: 2em;
+    color: var(--color-primary);
+    margin: 1em 0 0.5em;
+    text-shadow: 2px 2px 0px rgba(139, 92, 246, 0.1);
+}
+
+.markdown-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.6em;
+    color: var(--color-secondary);
+    margin: 0.875em 0 0.5em;
+}
+
+.markdown-content h3 {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 1.3em;
+    color: var(--color-accent);
+    margin: 0.75em 0 0.5em;
+}
+
+.markdown-content p { margin: 0.75em 0; }
+.markdown-content ul, .markdown-content ol { margin-left: 1.5em; margin-top: 0.5em; margin-bottom: 0.5em; }
+.markdown-content li { margin: 0.4em 0; }
+
+.markdown-content code:not([class*="language-"]) {
+    background: var(--color-highlight, #f1f5f9);
+    color: var(--color-secondary, #db2777);
+    padding: 0.2em 0.5em;
+    border-radius: 0.5em;
+    font-weight: bold;
+    font-size: 0.9em;
+    border: 1px solid var(--color-dark-border, #e2e8f0);
+}
+
+.markdown-content blockquote {
+    border-left: 5px solid var(--color-accent, #fbbf24);
+    background-color: var(--color-highlight, #fffbeb);
+    padding: 1em;
+    border-radius: 0 1em 1em 0;
+    margin: 1em 0;
+    color: #92400e;
+    font-style: italic;
+}
+
+.markdown-content table {
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1em 0;
+    width: 100%;
+    border-radius: 1em;
+    overflow: hidden;
+    border: 2px solid var(--color-dark-border, #e2e8f0);
+}
+
+.markdown-content th, .markdown-content td {
+    padding: 0.75em 1em;
+    border-bottom: 1px solid var(--color-dark-border, #e2e8f0);
+    border-right: 1px solid var(--color-dark-border, #e2e8f0);
+}
+
+.markdown-content th {
+    background: var(--color-highlight, #f8fafc);
+    font-weight: 800;
+    color: var(--color-text-muted);
+}
+
+.markdown-content tr:last-child td { border-bottom: none; }
+.markdown-content tr td:last-child, .markdown-content tr th:last-child { border-right: none; }
+
+/* Toast Notifications */
+.toast {
+    animation: slideInBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-card);
+    border: 2px solid #fff;
+}
+
+@keyframes slideInBounce {
+    from { transform: translateX(120%); }
+    to { transform: translateX(0); }
+}
+
+.toast.removing { animation: slideOut 0.3s ease-in; }
+@keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(120%); opacity: 0; }
+}
+
+/* Loading Spinner */
+@keyframes spin-fun {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.animate-spin { animation: spin-fun 2s linear infinite; }
+
+/* File Preview */
+.file-preview {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 2px dashed #cbd5e1;
+    transition: all var(--transition-speed);
+}
+
+.file-preview:hover {
+    transform: var(--hover-transform);
+    border-color: var(--color-primary);
+}
+
+.file-preview img {
+    max-height: 100px;
+    max-width: 100px;
+    object-fit: cover;
+    border-radius: 0.5em;
+}
+
+/* Voice Recording Animation */
+@keyframes recordPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(244, 114, 182, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(244, 114, 182, 0); }
+}
+.recording { animation: recordPulse 1.5s infinite; }
+
+/* Collapsible Section */
+.collapsible-header { cursor: pointer; user-select: none; }
+.collapsible-header:hover { background-color: var(--color-highlight); }
+.collapsible-content { overflow: hidden; transition: max-height 0.3s ease-in-out; }
+
+/* Status Indicator */
+.status-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+.status-dot.online { background-color: #10b981; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2); }
+.status-dot.offline { background-color: #94a3b8; }
+.status-dot.error { background-color: #ef4444; box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2); }
+
+/* Project Card Hover Effect */
+.project-card {
+    transition: all var(--transition-speed) cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-radius: 1.5rem;
+    border: 3px solid transparent;
+}
+
+.project-card:hover {
+    transform: var(--hover-transform);
+    box-shadow: var(--shadow-card);
+    border-color: var(--color-dark-border);
+}
+
+/* Input Focus Glow */
+input:focus, textarea:focus, select:focus {
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+}
+
+/* Utility Classes */
+.truncate-multiline {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Theme Colors Mapping */
+.bg-dark-bg { background-color: var(--color-dark-bg) !important; }
+.bg-dark-card { background-color: var(--color-dark-card) !important; }
+.border-dark-border { border-color: var(--color-dark-border) !important; }
+.text-primary { color: var(--color-primary) !important; }
+.text-gray-100, .text-gray-200, .text-gray-300 { color: var(--color-text-main) !important; }
+.text-gray-400, .text-gray-500 { color: var(--color-text-muted) !important; }
+.hover\:bg-dark-bg:hover { background-color: var(--color-dark-bg) !important; }
+.hover\:bg-dark-card:hover { background-color: var(--color-dark-card) !important; }
+
+/* Specific elements */
+#chat-view, #projects-view { background-color: var(--color-dark-card) !important; }
+
+/* Ensure inputs are visible */
+input, textarea, select {
+    color: var(--color-text-main) !important;
+    background-color: var(--color-highlight, #f8fafc) !important;
+    border-color: var(--color-dark-border) !important;
+}
+input::placeholder, textarea::placeholder { color: var(--color-text-muted) !important; }
+
+/* Syntax Highlighting overrides */
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: var(--color-highlight, #fdf6e3) !important;
+}
